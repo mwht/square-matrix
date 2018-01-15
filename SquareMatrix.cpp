@@ -9,6 +9,12 @@ SquareMatrix::SquareMatrix(unsigned int size,double initvar) {
 	for(unsigned int i=0;i<size*size;i++) data[i] = initvar;
 }
 
+SquareMatrix::SquareMatrix(const SquareMatrix& sm) {
+	data = new double[sm.dim*sm.dim];
+	dim = sm.dim;
+	for(unsigned int i=0;i<dim*dim;i++) data[i] = sm.data[i];
+}
+
 SquareMatrix::~SquareMatrix() {
 	delete[] data;
 
@@ -66,7 +72,7 @@ SquareMatrix& SquareMatrix::operator= (const SquareMatrix& sq) {
 	return *this;
 }
 
-SquareMatrix operator- (double d,SquareMatrix& sm) {
+SquareMatrix operator- (double d,SquareMatrix sm) {
 	SquareMatrix sq(sm.getDimension(),d);
 	for(unsigned int i=0;i<sm.getDimension();i++) {
 		for(unsigned int j=0;j<sm.getDimension();j++) {

@@ -17,6 +17,7 @@ class SquareMatrix {
 	public:
 		SquareMatrix();
 		SquareMatrix(unsigned int,double);
+		SquareMatrix(const SquareMatrix&);
 		~SquareMatrix();
 		unsigned int getDimension();
 		double getMax();
@@ -26,6 +27,6 @@ class SquareMatrix {
 		SquareMatrix& operator= (const SquareMatrix& sq);
 };
 
-SquareMatrix operator- (double d,SquareMatrix& sm);
+SquareMatrix operator- (double d,SquareMatrix sm);
 
 #endif // __SquareMatrix_hpp__
