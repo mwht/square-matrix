@@ -13,6 +13,7 @@ class SquareMatrix {
 	private:
 		double* data;
 		unsigned int dim;
+		bool check(unsigned int,unsigned int);
 	public:
 		SquareMatrix();
 		SquareMatrix(unsigned int,double);
@@ -20,7 +21,11 @@ class SquareMatrix {
 		unsigned int getDimension();
 		double getMax();
 		void write(unsigned int,unsigned int,double);
+		double read(unsigned int,unsigned int);
 		void print();
+		SquareMatrix& operator= (const SquareMatrix& sq);
 };
+
+SquareMatrix operator- (double d,SquareMatrix& sm);
 
 #endif // __SquareMatrix_hpp__
